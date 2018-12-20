@@ -1,10 +1,17 @@
-package com.thanhdc.bookmanager.reponsitory;
+package com.thanhdc.bookmanager.service;
 
 import com.thanhdc.bookmanager.model.Book;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface BookReponsitory extends PagingAndSortingRepository<Book, Integer> {
+public interface BookService {
+    Page<Book> findAll(Pageable pageable);
+
+    void save(Book book);
+
+    Book findById(int id);
+
+    void remove(int id);
+
     Page<Book> findAllByName(String name, Pageable pageable);
 }
