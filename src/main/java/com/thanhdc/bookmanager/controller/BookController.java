@@ -73,5 +73,11 @@ public class BookController {
         return modelAndView;
     }
 
+    @GetMapping("/view/{id}")
+    public ModelAndView formViewBook(@PathVariable int id){
+        ModelAndView modelAndView = new ModelAndView("/book/view");
+        modelAndView.addObject("book", bookService.findById(id));
+        return modelAndView;
+    }
 
 }
